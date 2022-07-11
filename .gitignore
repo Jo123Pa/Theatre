@@ -1,0 +1,14 @@
+/mysite/db.sqlite3
+/mysite/media/**
+!/mysite/media/user
+/mysite/media/user/**
+!/mysite/media/user/profile/
+/mysite/media/user/profile/**
+!/mysite/media/user/profile/default.png
+/mysite/mysite/secret_settings.py
+/venv/
+/venv/**
+**/__pycache__/
+.venv/
+*.mo
+.DS_Store
