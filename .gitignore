@@ -2,9 +2,9 @@
 /mysite/media/**
 !/mysite/media/user
 /mysite/media/user/**
-!/mysite/media/user/profile/
-/mysite/media/user/profile/**
-!/mysite/media/user/profile/default.png
+!/mysite/media/user_profile/
+/mysite/media/user_profile/**
+!/mysite/media/user_profile/default.png
 /mysite/mysite/secret_settings.py
 /venv/
 /venv/**
