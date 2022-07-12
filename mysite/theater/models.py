@@ -8,6 +8,10 @@ class Genre(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'Genre'
+        verbose_name_plural = 'Genres'
+
 class Director(models.Model):
     first_name = models.CharField('Vardas', max_length=100)
     last_name = models.CharField('Pavardė', max_length=100)
@@ -22,12 +26,22 @@ class Director(models.Model):
     def __str__(self):
         return f'{self.last_name} {self.first_name}'
 
+    def display_performance(self):
+        return ', '.join(performance.title for performance in self.performance.all())
+
+    display_performance.short_description = 'Performance'
+
+
+    class Meta:
+        verbose_name = 'Director'
+        verbose_name_plural = 'Directors'
+
 
 class Performance(models.Model):
     title = models.CharField('Pavadinimas', max_length=200)
     author = models.CharField('Autorius', max_length=200)
     summary = models.TextField('Aprašymas', max_length=500)
-    director = models.ForeignKey('Director', on_delete=models.SET_NULL, null=True)
+    director = models.ForeignKey('Director', on_delete=models.SET_NULL, null=True, related_name='performance')
     actor = models.ManyToManyField('Actor', help_text='Pasirinkite spektaklio aktorius')
     genre = models.ForeignKey('Genre', on_delete=models.SET_NULL, null=True)
     cover = models.ImageField('Cover', upload_to='covers', null=True, blank=True)
@@ -37,6 +51,11 @@ class Performance(models.Model):
 
     def get_absolute_url(self):
         return reverse('performance-detail', args=[str(self.id)])
+
+    def display_actor(self):
+        return ', '.join(actor.first_name for actor in self.actor.all())
+
+    display_actor.short_description = 'Actor'
     
 
 class Actor(models.Model):
@@ -52,6 +71,10 @@ class Actor(models.Model):
 
     def __str__(self):
         return f'{self.last_name} {self.first_name}'
+
+    class Meta:
+        verbose_name = 'Actor'
+        verbose_name_plural = 'Actors'
 
 
 class PerformanceInstance(models.Model):
