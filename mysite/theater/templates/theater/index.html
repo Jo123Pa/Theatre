@@ -1,0 +1,14 @@
+{% extends "theater/base.html" %}
+
+{% block content %}
+  <h1>Teatro studija "PALĖPĖ"</h1>
+  <p>Sveiki atvykę į teatrą!</p>
+  <p>Šiuo metu rodome:</p>
+  <ul>
+    <li><strong>Spektaklių:</strong> {{ num_performance }}</li>
+    <li><strong>Pasirodymai:</strong> {{ num_instances }}</li>
+    <li><strong>Laisvų vietų spektakliai:</strong> {{ num_instances_available }}</li>
+    <li><strong>Režisieriai:</strong> {{ num_director }}</li>
+    <p>Čia jūs lankotes {{ num_visits }}-ą kartą.</p>
+  </ul>
+{% endblock %}
