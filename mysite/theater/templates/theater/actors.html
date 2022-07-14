@@ -1,0 +1,9 @@
+{% extends "theater/base.html" %}
+
+{% block content %}
+  <h1>Aktoriai</h1>
+  <p>Mūsų teatro aktoriai.</p>
+  {% for a in actors %}
+    <li><a href="{% url 'actor' a.id %}">{{a.first_name}} {{a.last_name}}</a></li>
+  {% endfor %}
+{% endblock %}

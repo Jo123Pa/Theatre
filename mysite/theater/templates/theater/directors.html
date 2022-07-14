@@ -3,7 +3,7 @@
 {% block content %}
   <h1>Režisieriai</h1>
   <p>Mūsų spektaklių režisieriai.</p>
-  {% for one in directors %}
-    <li><a href="{% url 'director' one.id %}">{{one.first_name}} {{one.last_name}}</a></li>
+  {% for a in directors %}
+    <li><a href="{% url 'director' a.id %}">{{a.first_name}} {{a.last_name}}</a></li>
   {% endfor %}
 {% endblock %}

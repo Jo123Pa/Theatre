@@ -1,0 +1,16 @@
+{% extends "theater/base.html" %}
+
+{% block content %}
+  <h1>Spektaklių sąrašas</h1>
+  {% if performance_list %}
+  <ul>
+    {% for performance in performance_list %}
+      <li>
+        <a href="{{ performance.id }}">{{ performance.title }}</a> ({{performance.author}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>Tokio spektaklio nėra.</p>
+  {% endif %}
+{% endblock %}

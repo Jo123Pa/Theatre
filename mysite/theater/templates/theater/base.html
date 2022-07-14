@@ -16,8 +16,9 @@
       {% block sidebar %}
         <ul class="sidebar-nav">
           <li><a href="{% url 'index' %}">Pradžia</a></li>
-          <li><a href="">Visi spektakliai</a></li>
-          <li><a href="">Visi režisieriai</a></li>
+          <li><a href="{% url 'performances' %}">Spektakliai</a></li>
+          <li><a href="{% url 'directors' %}">Režisieriai</a></li>
+          <li><a href="{% url 'actors' %}">Aktoriai</a></li>
         </ul>
      {% endblock %}
       </div>
