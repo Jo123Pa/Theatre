@@ -2,6 +2,9 @@ from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 from .models import Genre, Performance, Director, Actor, PerformanceInstance
 from django.views import generic
+from django.db.models import Q
+from django.urls import reverse_lazy
+from django.core.paginator import Paginator
 
 def index(request):
     num_performance = Performance.objects.count()
@@ -34,9 +37,11 @@ def director(request, director_id):
     return render(request, 'theater/director.html', {'director': single_director})
 
 def actors(request):
-    actors = Actor.objects.all()
+    paginator = Paginator(Actor.objects.all(), 2)
+    page_number = request.GET.get('page')
+    paged_actors = paginator.get_page(page_number)
     context = {
-        'actors' : actors
+        'actors' : paged_actors
     }
     return render(request, 'theater/actors.html', context=context)
 
@@ -47,8 +52,21 @@ def actor(request, actor_id):
 class PerformanceListView(generic.ListView):
     model = Performance
     # queryset = Performance.objects.filter(status__exact='Yra laisvų vietų')[:3] 
+    paginate_by = 1
     template_name = 'theater/performance_list.html'
 
 class PerformanceDetailView(generic.DetailView):
     model = Performance
+    context = 'performance'
     template_name = 'theater/performance_detail.html'
+
+
+def search(request):
+    query = request.GET.get('query')
+    search_results = Performance.objects.filter(Q(title__icontains=query) | Q(summary__icontains=query))
+    context = {
+        "query": query,
+        "performances": search_results,
+    }
+    return render(request, 'theater/search.html', context=context)
+

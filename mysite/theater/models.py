@@ -45,7 +45,7 @@ class Performance(models.Model):
     director = models.ForeignKey('Director', on_delete=models.SET_NULL, null=True, related_name='performance')
     actor = models.ManyToManyField('Actor', help_text='Pasirinkite spektaklio aktorius')
     genre = models.ForeignKey('Genre', on_delete=models.SET_NULL, null=True)
-    cover = models.ImageField('Cover', upload_to='covers', null=True, blank=True)
+    cover = models.ImageField('Cover', upload_to='covers', null=True)
 
     def __str__(self):
         return self.title

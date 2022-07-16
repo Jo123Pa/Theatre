@@ -1,6 +1,7 @@
 {% extends "theater/base.html" %}
 
 {% block content %}
+  <img src="{{ performance.cover.url }}" style="margin-bottom: 20px;">
   <h1>{{ object.title }}</h1>
 
   <p><strong>Režisierius:</strong> <a href="{% url 'director' object.director.pk %}"> {{ object.director }}</a></p>

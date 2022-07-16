@@ -8,6 +8,7 @@ urlpatterns = [
     path('actors/', views.actors, name='actors'),
     path('actors/<int:actor_id>', views.actor, name='actor'),
     path('performances/', views.PerformanceListView.as_view(), name='performances'),
-    path('performances/<int:pk>', views.PerformanceDetailView.as_view(), name='performance-detail'),
-    
+    path('performances/<int:pk>', views.PerformanceDetailView.as_view(), name='performance'),
+    path('search/', views.search, name='search'),
+
 ]

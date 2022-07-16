@@ -24,4 +24,5 @@ urlpatterns = [
     path('user_profile/', include('user_profile.urls')),
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='theater', permanent=True)),
-] + static(settings.STATIC_URL, dokument_root=settings.STATIC_ROOT)
+] + (static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +
+     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
