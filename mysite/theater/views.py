@@ -9,16 +9,17 @@ from django.core.paginator import Paginator
 def index(request):
     num_performance = Performance.objects.count()
     num_instances = PerformanceInstance.objects.all().count()
-
     num_instances_available = PerformanceInstance.objects.filter(status__exact='Yra laisvų vietų').count()
-
     num_director = Director.objects.count()
+    num_visits = request.session.get('num_visits', 1)
+    request.session['num_visits'] = num_visits + 1
 
     context = {
         'num_performance' : num_performance,
         'num_instances' : num_instances,
         'num_instances_available' : num_instances_available,
         'num_director' : num_director,
+        'num_visits' : num_visits,
     }
 
     return render(request, 'theater/index.html', context=context)
