@@ -21,7 +21,7 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('theater/', include('theater.urls')),
-    path('user_profile/', include('user_profile.urls')),
+    path('profile/', include('user_profile.urls')),
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='theater', permanent=True)),
     path('accounts/', include('django.contrib.auth.urls')),

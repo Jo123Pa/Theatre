@@ -6,6 +6,7 @@
 /mysite/media/user_profile/**
 !/mysite/media/user_profile/default.png
 /mysite/mysite/secret_settings.py
+mysite/mysite/email_settings.py
 /venv/
 /venv/**
 **/__pycache__/
