@@ -1,6 +1,9 @@
 from django.db import models
 from django.urls import reverse
 import uuid
+from django.contrib.auth import get_user_model
+from datetime import date
+from tinymce.models import HTMLField
 
 class Genre(models.Model):
     name = models.CharField('Pavadinimas', max_length=200, help_text='Įveskite knygos žandrą')
@@ -83,6 +86,14 @@ class PerformanceInstance(models.Model):
     performance = models.ForeignKey('Performance', on_delete=models.SET_NULL, null=True)
     performance_date = models.DateField('Pasirodymas', null=True, blank=True)
     # client = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, blank=True))
+    viewer = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, blank=True)
+
+    @property
+    def is_overdue(self):
+        if self.performance_date and date.today() > self.performance_date:
+            return True
+        return False
+
 
     PERFORMANCE_STATUS = (
         ('Yra laisvų vietų', 'Yra laisvų vietų'),

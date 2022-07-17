@@ -1,0 +1,19 @@
+{% extends "theater/base.html" %}
+
+{% block content %}
+    <h1>Mano rezervuoti spektakliai</h1>
+
+    {% if performanceinstance_list %}
+    <ul>
+
+      {% for performanceinst in performanceinstance_list %} 
+      <li class="{% if performanceinst.is_overdue %}text-danger{% endif %}">
+        <a href="{% url 'performance' performanceinst.performance.pk %}">{{performanceinst.performance.title}}</a> ({{ performanceinst.performance_date }})        
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>Šiuo metu iš mūsų nesate rezervavęs spektaklių.</p>
+    {% endif %}       
+{% endblock %}

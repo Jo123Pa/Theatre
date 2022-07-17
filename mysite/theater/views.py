@@ -1,3 +1,4 @@
+from django import views
 from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 from .models import Genre, Performance, Director, Actor, PerformanceInstance
@@ -5,6 +6,7 @@ from django.views import generic
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.core.paginator import Paginator
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def index(request):
     num_performance = Performance.objects.count()
@@ -71,3 +73,11 @@ def search(request):
     }
     return render(request, 'theater/search.html', context=context)
 
+
+class BookedPerformanceByUserListView(LoginRequiredMixin,generic.ListView):
+    model = PerformanceInstance
+    template_name = 'theater/user_booked_performance.html'
+    paginate_by = 2
+
+    def get_queryset(self):
+        return PerformanceInstance.objects.filter(viewer=self.request.user).order_by('performance_date')
