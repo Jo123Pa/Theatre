@@ -12,4 +12,7 @@ def create_profile(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=get_user_model())
 def save_profile(sender, instance, **kwargs):
-    instance.profile.save()
+    if hasattr(instance, 'profile'):
+        instance.profile.save()
+    else:
+        Profile.objects.create(user=instance)
