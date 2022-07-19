@@ -1,5 +1,5 @@
 {% extends "theater/base.html" %}
-
+{% load i18n %}
 {% block content %}
   <img src="{{ performance.cover.url }}" style="margin-bottom: 20px;">
   <h1>{{ object.title }}</h1>
@@ -10,6 +10,7 @@
   <p><strong>Aktoriai:</strong> {{ object.actor.all|join:", " }}</p> 
 
 
+
   <div style="margin-left:20px;margin-top:20px">
 
     <h4>Pasirodymai:</h4>
@@ -18,6 +19,7 @@
       <hr>
      <p><strong>Spektaklio diena</strong> {{ performance.performance_date }}</p>
      <p class="text-muted"><strong>{{ performance.status }} </strong></p>
+     <a class="btn btn-success float-left" href="{% url 'my-booked-new' %}?performance_id={{ performance.id }}">{% trans "booked"|capfirst%}</a>
     {% endfor %}
   </div>
 

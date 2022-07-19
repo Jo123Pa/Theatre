@@ -1,0 +1,16 @@
+{% extends "theater/base.html" %}
+{% load i18n crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <h1>{% trans "booked a performance"|capfirst %}</h1>
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        {% comment %} {{ user_form|crispy }} {% endcomment %}
+        <div class="form-group">
+            <button class="btn btn-primary">{% trans "booked" %}</button>
+        </div>
+    </form>
+</div>
+     
+{% endblock %}

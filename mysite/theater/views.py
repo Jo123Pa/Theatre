@@ -1,5 +1,5 @@
 from django import views
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Genre, Performance, Director, Actor, PerformanceInstance
 from django.views import generic
@@ -7,6 +7,7 @@ from django.db.models import Q
 from django.urls import reverse_lazy
 from django.core.paginator import Paginator
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
 
 def index(request):
     num_performance = Performance.objects.count()
@@ -77,7 +78,35 @@ def search(request):
 class BookedPerformanceByUserListView(LoginRequiredMixin,generic.ListView):
     model = PerformanceInstance
     template_name = 'theater/user_booked_performance.html'
-    paginate_by = 2
+    paginate_by = 4
 
     def get_queryset(self):
-        return PerformanceInstance.objects.filter(viewer=self.request.user).order_by('performance_date')
+        # return PerformanceInstance.objects.filter(viewer=self.request.user).booked().order_by('performance_date')
+        return PerformanceInstance.objects.filter(viewer=self.request.user)
+
+class BookedPerformanceByUserDelailView(LoginRequiredMixin, generic.DetailView):
+    model = PerformanceInstance
+    template_name = 'theater/user_performances.html'
+
+
+class BookByUserCreateView(LoginRequiredMixin, generic.CreateView):
+    model = PerformanceInstance
+    fields = ('performance','performance_date',)
+    success_url = reverse_lazy('my-booked')
+    template_name = 'theater/user_performance_form.html'
+
+    def form_valid(self, form):
+        form.instance.viewer = self.request.user
+        form.instance.status = 'Nėra laisvų vietų'
+        return super().form_valid(form)
+
+    def get_initial(self):
+        initial = super().get_initial()
+        performance_id = self.request.GET.get('performance_id')
+        # performance_date = self.request.GET.get('performance_date')
+        if performance_id:
+            initial['performance'] = performance_id
+        # if performance_date:
+        #     initial['performance_date'] = performance_date
+        return initial
+ 

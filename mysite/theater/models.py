@@ -4,6 +4,8 @@ import uuid
 from django.contrib.auth import get_user_model
 from datetime import date
 from tinymce.models import HTMLField
+from django.db.models import Q
+
 
 class Genre(models.Model):
     name = models.CharField('Pavadinimas', max_length=200, help_text='Įveskite knygos žandrą')
@@ -115,3 +117,8 @@ class PerformanceInstance(models.Model):
 
     def __str__(self):
         return f'{self.id} ({self.performance.title})'
+
+
+class PerformanceInstanceQuerySet(models.QuerySet):
+    def booked(self):
+        return self.filter(models.Q(status__exact='Nėra laisvų vietų'))
