@@ -102,7 +102,7 @@ class BookByUserCreateView(LoginRequiredMixin, generic.CreateView):
 
     def get_initial(self):
         initial = super().get_initial()
-        performance_id = self.request.GET.get('performance_id')
+        performance_id = self.request.Get.get('performance_id')
         # performance_date = self.request.GET.get('performance_date')
         if performance_id:
             initial['performance'] = performance_id
@@ -110,3 +110,18 @@ class BookByUserCreateView(LoginRequiredMixin, generic.CreateView):
         #     initial['performance_date'] = performance_date
         return initial
  
+
+def performance_attender(request, pi_id):
+    performance = get_object_or_404(PerformanceInstance, id=pi_id)
+    viewer = request.user
+    # if viewer not in performance.viewer:
+    # if viewer not in all_viewer:
+    performance.viewer.add(viewer)
+    performance.save()
+    messages.success(request, 'Jus sekmingai rezervavote')
+    # else:
+    #     messages.warning(request, 'Jus jau rezervavote ankciau')
+
+    return redirect ('my-booked')
+
+    

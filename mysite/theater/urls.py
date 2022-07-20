@@ -12,6 +12,7 @@ urlpatterns = [
     path('search/', views.search, name='search'),
     path('myperformances/', views.BookedPerformanceByUserListView.as_view(), name='my-booked'),
     path('myperformances/<int:pk>/', views.BookedPerformanceByUserDelailView.as_view(), name='my-performances'),
-    path('myperformances/new/', views.BookByUserCreateView.as_view(), name='my-booked-new')
+    path('myperformances/new/', views.BookByUserCreateView.as_view(), name='my-booked-new'),
+    path('attend/<int:pi_id>/', views.performance_attender, name='attend')
 
 ]

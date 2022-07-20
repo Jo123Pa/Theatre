@@ -13,7 +13,7 @@ class PerformanceAdmin(admin.ModelAdmin):
     search_fields = ('id', 'title')
 
 class PerformanceInstanceAdmin(admin.ModelAdmin):
-    list_display = ('performance_date', 'performance', 'status', 'viewer')
+    list_display = ('performance_date', 'performance', 'status')
     # list_editable = ('performance_date', 'status')
     list_filter = ('performance_date', 'performance')
     # search_fields = ('id', 'performance__title')

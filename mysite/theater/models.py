@@ -87,8 +87,8 @@ class PerformanceInstance(models.Model):
     unique_id = models.UUIDField(default=uuid.uuid4, help_text=('A unique ID for a performance'))
     performance = models.ForeignKey('Performance', on_delete=models.SET_NULL, null=True)
     performance_date = models.DateField('Pasirodymas', null=True, blank=True)
-    # client = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, blank=True))
-    viewer = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, blank=True)
+    viewer = models.ManyToManyField(get_user_model())
+
 
     @property
     def is_overdue(self):
@@ -116,7 +116,7 @@ class PerformanceInstance(models.Model):
 
 
     def __str__(self):
-        return f'{self.id} ({self.performance.title})'
+        return f'{self.id} ({self.performance.title}{self.viewer})'
 
 
 class PerformanceInstanceQuerySet(models.QuerySet):
