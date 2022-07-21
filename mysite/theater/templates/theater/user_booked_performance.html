@@ -1,5 +1,5 @@
 {% extends "theater/base.html" %}
-
+{% load i18n %}
 {% block content %}
     <h3>Mano rezervuoti spektakliai</h3>
 
@@ -8,13 +8,9 @@
 
       {% for performanceinst in performanceinstance_list %} 
       <li class="{% if performanceinst.is_overdue %}text-danger{% endif %}">
-
-        <a href="{% url 'my-performances' performanceinst.id %}">
-          <img class="rounded-circle" src="{{ performanceinst.viewer.profile.picture.url }}" width="50"> {{ performanceinst.viewer }}
-        </a>
-      <li class="{% if performanceinst.is_overdue %}text-danger{% endif %}">
-        <a href="{% url 'performance' performanceinst.performance.pk %}">{{performanceinst.performance.title}}</a> ({{ performanceinst.performance_date }})        
-      </li>
+        <a href="{% url 'performance' performanceinst.performance.pk %}">{{performanceinst.performance.title}}</a> ({{ performanceinst.performance_date }}) 
+        <a class="btn btn-danger" href="{% url 'cancel' performanceinst.id %}">{% trans "canceled"|capfirst%}</a>
+      {% comment %} </li>     <a class="btn btn-success float-left" href="{% url 'cancel' performanceinst.id %}">{% trans "canceled"|capfirst%}</a> {% endcomment %}
       {% endfor %}
     </ul>
 

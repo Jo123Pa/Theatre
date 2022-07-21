@@ -88,6 +88,7 @@ class PerformanceInstance(models.Model):
     performance = models.ForeignKey('Performance', on_delete=models.SET_NULL, null=True)
     performance_date = models.DateField('Pasirodymas', null=True, blank=True)
     viewer = models.ManyToManyField(get_user_model())
+    ticket = models.IntegerField('Bilietas', blank=False, null=False, default=0)
 
 
     @property
@@ -106,7 +107,6 @@ class PerformanceInstance(models.Model):
     status = models.CharField(
         max_length=20,
         choices=PERFORMANCE_STATUS,
-        blank=True,
         default='Yra laisvų vietų',
         help_text='Statusas',
     )
@@ -116,7 +116,8 @@ class PerformanceInstance(models.Model):
 
 
     def __str__(self):
-        return f'{self.id} ({self.performance.title}{self.viewer})'
+        return f'{self.ticket}'
+        # ({self.performance.title}{self.viewer})'
 
 
 class PerformanceInstanceQuerySet(models.QuerySet):

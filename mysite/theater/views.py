@@ -114,14 +114,35 @@ class BookByUserCreateView(LoginRequiredMixin, generic.CreateView):
 def performance_attender(request, pi_id):
     performance = get_object_or_404(PerformanceInstance, id=pi_id)
     viewer = request.user
-    # if viewer not in performance.viewer:
-    # if viewer not in all_viewer:
-    performance.viewer.add(viewer)
-    performance.save()
-    messages.success(request, 'Jus sekmingai rezervavote')
-    # else:
-    #     messages.warning(request, 'Jus jau rezervavote ankciau')
 
-    return redirect ('my-booked')
+    viewers = []
+    for view in performance.viewer.all():
+        viewers.append(view)
 
-    
+    if viewer not in viewers and performance.ticket >= len(viewers)+1:
+        performance.viewer.add(viewer)
+        performance.save()
+        messages.success(request, 'Jus sekmingai rezervavote')
+
+    else:
+         messages.warning(request, 'Spektaklyje nera vietu arba Jus jau rezervavote ankciau')
+
+    if len(viewers)+1 == performance.ticket:
+        performance.status = ('Nėra laisvų vietų')
+        performance.save()
+
+    return redirect ('my-booked')    
+
+
+def performance_cancel(request, pi_id):
+    performance = get_object_or_404(PerformanceInstance, id=pi_id)
+    viewer = request.user
+    viewers = []
+    for view in performance.viewer.all():
+        viewers.append(view)
+    if performance.status == ('Nėra laisvų vietų'):
+        performance.viewer.remove(viewer)
+        performance.status = ('Yra laisvų vietų')
+        performance.save()
+    messages.success(request, 'Jusu rezervacija sekmingai panaikinta')
+    return redirect ('performances')
