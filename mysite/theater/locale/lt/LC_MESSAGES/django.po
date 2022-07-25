@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-25 19:25+0000\n"
+"POT-Creation-Date: 2022-07-25 19:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,7 +75,9 @@ msgstr "nepavyko pakeisti slaptažodžio"
 
 #: theater/templates/registration/password_reset_confirm.html:27
 msgid "the password reset link is invalid. please initiate the password reset."
-msgstr "slaptažodžio pakeitimo nuoroda negaliojanti. prašome inicijuoti slaptažodžio keitimą iš naujo."
+msgstr ""
+"slaptažodžio pakeitimo nuoroda negaliojanti. prašome inicijuoti slaptažodžio "
+"keitimą iš naujo."
 
 #: theater/templates/registration/password_reset_done.html:4
 msgid "we've emailed you a password reset link!"
@@ -268,4 +270,3 @@ msgstr "spektaklis"
 #: theater/templates/theater/user_performances.html:15
 msgid "booked date"
 msgstr "rezevacijos data"
-

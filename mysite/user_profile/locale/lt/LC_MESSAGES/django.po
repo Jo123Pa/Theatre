@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-25 19:25+0000\n"
+"POT-Creation-Date: 2022-07-25 19:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,64 +36,93 @@ msgstr "vartotojo profilis"
 msgid "user profiles"
 msgstr "vartotojų profiliai"
 
+#: user_profile/templates/user_profile/profile.html:14
+msgid "update profile"
+msgstr "atnaujintas vartotojo profilis"
+
+#: user_profile/templates/user_profile/profile_update.html:9
+msgid "profile Info"
+msgstr "profilio info"
+
+#: user_profile/templates/user_profile/profile_update.html:14
+msgid "update"
+msgstr "atnaujinti"
+
 #: user_profile/templates/user_profile/register.html:5
-msgid "Registration"
+msgid "registration"
 msgstr "registracija"
 
 #: user_profile/templates/user_profile/register.html:9
-msgid "User name"
+msgid "user name"
 msgstr "vartotojo vardas"
 
+#: user_profile/templates/user_profile/register.html:11
+#: user_profile/templates/user_profile/register.html:16
+#: user_profile/templates/user_profile/register.html:21
+msgid "up to 150 characters."
+msgstr "iki 150 simbolių."
+
 #: user_profile/templates/user_profile/register.html:14
-msgid "First name"
+msgid "first name"
 msgstr "vardas"
 
 #: user_profile/templates/user_profile/register.html:19
-msgid "Last name"
-msgstr "pavarde"
+msgid "last name"
+msgstr "pavardė"
 
 #: user_profile/templates/user_profile/register.html:24
-msgid "El. paštas"
-msgstr "el. pastas"
+msgid "email"
+msgstr "el.paštas"
+
+#: user_profile/templates/user_profile/register.html:26
+msgid "we will not share with anyone, we will not send any spam."
+msgstr "nesidalinsime su niekuo, nesiųsime jokio spamo."
+
+#: user_profile/templates/user_profile/register.html:27
+msgid "required to send a new password."
+msgstr "reikalingas naujam slaptažodžiui išsiųsti. "
 
 #: user_profile/templates/user_profile/register.html:30
-msgid "Slaptažodis"
+msgid "password"
 msgstr "slaptažodis"
 
 #: user_profile/templates/user_profile/register.html:36
-msgid "Repeat the password"
+msgid "repeat the password"
 msgstr "pakartoti slaptažodį"
 
 #: user_profile/templates/user_profile/register.html:39
-msgid "Registruotis"
-msgstr ""
+msgid "register"
+msgstr "registracija"
 
 #: user_profile/templates/user_profile/register.html:41
-msgid "If you have registered before, "
-msgstr ""
+msgid "if you have registered before, "
+msgstr "jei ankšiau registravotės, "
 
 #: user_profile/templates/user_profile/register.html:41
-msgid "Log in"
+msgid "login"
 msgstr "prisijungti"
 
 #: user_profile/views.py:45
 msgid "Username already exists or was not entered."
-msgstr ""
+msgstr "Toks vartotojas jau yra arba vartotojo vardas nebuvo įvestas"
 
 #: user_profile/views.py:48
 msgid "First_name or second_name were not entered"
-msgstr ""
+msgstr "Vardas arba pavardė nebuvo įvesta"
 
 #: user_profile/views.py:51
 msgid ""
 "User with this email address already exists, or email was entered "
 "incorrectly."
 msgstr ""
+"vartotojas su tokiu el.paštu jau egzistuoja arba el.paštas buvo įvestas "
+"neteisingai"
 
 #: user_profile/views.py:54
 msgid "Passwords do not match or were not entered."
-msgstr ""
+msgstr "Slaptažodžiai nesutampa"
 
 #: user_profile/views.py:65
 msgid "User {} was created successfully."
-msgstr ""
+msgstr "Vartotojas {} sukurtas sėkmingai"
+

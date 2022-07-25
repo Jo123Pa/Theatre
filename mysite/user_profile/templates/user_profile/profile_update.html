@@ -1,17 +1,17 @@
 {% extends 'theater/base.html' %}
-{% load crispy_forms_tags %}
+{% load i18n  crispy_forms_tags %}
 {% block content %}
 <div class="container">
     <h1>Updating ...</h1>
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <fieldset class="form-group">
-            <legend class="border-bottom mb-4">{{ user }} Profile Info</legend>
+            <legend class="border-bottom mb-4">{{ user }} {% trans "profile Info"|capfirst %}</legend>
             {{ user_form|crispy }}
             {{ profile_form|crispy }}
         </fieldset>
         <div class="form-group">
-            <button class="btn btn-primary" type="submit">Update</button>
+            <button class="btn btn-primary" type="submit">{% trans "update"|capfirst %}</button>
         </fieldset>
     </form>
 </div>
