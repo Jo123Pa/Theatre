@@ -8,7 +8,7 @@
         {{ form|crispy }}
         {% comment %} {{ user_form|crispy }} {% endcomment %}
         <div class="form-group">
-            <button class="btn btn-primary">{% trans "booked" %}</button>
+            <button class="btn btn-primary">{% trans "booked"|capfirst %}</button>
         </div>
     </form>
 </div>

@@ -1,7 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+<html lang="LANGUAGE_CODE">
 <head>
-  {% block title %}<title>Teatro studija "PALĖPĖ"</title>{% endblock %}
+  {% block title %}<title>{% trans "theater studio 'PALĖPĖ'"|capfirst %}</title>{% endblock %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -28,16 +30,16 @@
       <ul class="navbar-nav ml-auto">
         {# čia dedami meniu punktai #}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'index' %}">HOME</a>
+          <a class="nav-link" href="{% url 'index' %}">{% trans "home"|capfirst %}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'directors' %}">Directors</a>
+          <a class="nav-link" href="{% url 'directors' %}">{% trans "directors"|capfirst %}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'performances' %}">Performances</a>
+          <a class="nav-link" href="{% url 'performances' %}">{% trans "performances"|capfirst %}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'actors' %}">Actors</a>
+          <a class="nav-link" href="{% url 'actors' %}">{% trans "actors"|capfirst %}</a>
         </li>
         {% if user.is_authenticated %}
           <li class="nav-item">
@@ -49,32 +51,44 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'my-booked' %}">My Performances</a>
+            <a class="nav-link" href="{% url 'my-booked' %}">{% trans "my performances"|capfirst %}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'profile' %}">My Profile</a>
+            <a class="nav-link" href="{% url 'profile' %}">{% trans "my profile"|capfirst %}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            <a class="nav-link" href="{% url 'logout' %}">{% trans "logout"|capfirst %}</a>
           </li>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
+            <a class="nav-link" href="{% url 'login' %}">{% trans "login"|capfirst %}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}">Register</a>
+            <a class="nav-link" href="{% url 'register' %}">{% trans "register"|capfirst %}</a>
           </li>
         {% endif %}
         <li class="nav-item">
           <form class="form-inline" action="{% url 'search' %}" method="get" class="form-inline my-2 my-md-0">
-              <input name="query" class="form-control" type="text" placeholder="Paieška">
+              <input name="query" class="form-control" type="text" placeholder="{% trans "search"|capfirst %}">
           </form>
         </li>
         {% if user.is_authenticated and user.is_superuser %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+          <a class="nav-link" href="{% url 'admin:index' %}">{% trans "admin"|capfirst %}</a>
         </li>
         {% endif %}
+        <li class="nav-item">
+          <form class="form-inline" action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ redirect_to }}">
+            <select class="form-control" name="language" onchange="this.form.submit()">
+              {% for lang in LANGUAGES %}
+                <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                  {{ lang.1 }}</option>
+              {% endfor %}
+            </select>
+          </form>
+        </li>
       </ul>
     </div>
   </div>

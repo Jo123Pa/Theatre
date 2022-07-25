@@ -1,7 +1,7 @@
 {% extends "theater/base.html" %}
 {% load i18n %}
 {% block content %}
-    <h3>Mano rezervuoti spektakliai</h3>
+    <h3>{% trans "my booked performances"|capfirst %}</h3>
 
     {% if performanceinstance_list %}
     <ul>
@@ -15,6 +15,6 @@
     </ul>
 
     {% else %}
-      <p>Šiuo metu nesate rezervavęs spektaklių.</p>
+      <p>{% trans "you currently have not booked any performances."|capfirst %}</p>
     {% endif %}       
 {% endblock %}

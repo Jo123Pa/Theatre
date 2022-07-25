@@ -4,20 +4,20 @@
   <img src="{{ performance.cover.url }}" style="margin-bottom: 20px;">
   <h1>{{ object.title }}</h1>
 
-  <p><strong>Režisierius:</strong> <a href="{% url 'director' object.director.pk %}"> {{ object.director }}</a></p>
-  <p><strong>Žanras:</strong> {{ object.genre }}</p>  
-  <p><strong>Aprašymas:</strong> {{ object.summary }}</p>
-  <p><strong>Aktoriai:</strong> {{ object.actor.all|join:", " }}</p> 
+  <p><strong>{% trans "director:"|capfirst %}</strong> <a href="{% url 'director' object.director.pk %}"> {{ object.director }}</a></p>
+  <p><strong>{% trans "genre:"|capfirst %}</strong> {{ object.genre }}</p>  
+  <p><strong>{% trans "summary"|capfirst %}</strong> {{ object.summary }}</p>
+  <p><strong>{% trans "actors"|capfirst %}</strong> {{ object.actor.all|join:", " }}</p> 
 
 
 
   <div style="margin-left:20px;margin-top:20px">
 
-    <h4>Pasirodymai:</h4>
+    <h4>{% trans "shows"|capfirst %}</h4>
 
     {% for performance in object.performanceinstance_set.all %}
       <hr>
-     <p><strong>Spektaklio diena</strong> {{ performance.performance_date }}</p>
+     <p><strong>{% trans "the day of the show"|capfirst %}</strong> {{ performance.performance_date }}</p>
      <p class="text-muted"><strong>{{ performance.status }}</strong></p>
      {% comment %} <a class="btn btn-success float-left" href="{% url 'my-booked-new' %}?performance_id={{ performance.id }}">{% trans "booked"|capfirst%}</a> {% endcomment %}
      <a class="btn btn-success float-left" href="{% url 'attend' performance.id %}">{% trans "booked"|capfirst%}</a>

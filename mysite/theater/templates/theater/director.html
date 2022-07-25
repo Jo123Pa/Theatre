@@ -1,14 +1,14 @@
 {% extends "theater/base.html" %}
-
+{% load i18n %}
 {% block content %}
     <div class="container director">
-    <h4>Režisierius</h4>
+    <h4>{% trans "director"|capfirst %}</h4>
     <br>
     <h4>{{ director.first_name }} {{ director.last_name }}</h4>
     <hr>
     <p>{{ director.description }}</p>
     <br>
-    <p>Spektakliai</p>
+    <p>{% trans "performances"|capfirst %}</p>
     {% for i in director.performance.all %}
     <li>{{ i.title }}</li> 
     {% endfor %}

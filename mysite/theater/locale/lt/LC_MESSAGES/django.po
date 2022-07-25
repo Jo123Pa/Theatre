@@ -1,0 +1,271 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-25 19:25+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+
+#: theater/templates/registration/login.html:6
+msgid "login error, please try again!"
+msgstr "prisijungimo klaida, bandykite dar kartą!"
+
+#: theater/templates/registration/login.html:11
+msgid "you do not have access to this information. you must log in."
+msgstr "neturite prieigos prie šios informacijos. turite prisijungti."
+
+#: theater/templates/registration/login.html:19
+msgid "user:"
+msgstr "vartotojas"
+
+#: theater/templates/registration/login.html:23
+msgid "password:"
+msgstr "slaptažodis:"
+
+#: theater/templates/registration/login.html:27
+#: theater/templates/theater/base.html:64
+msgid "login"
+msgstr "prisijungti"
+
+#: theater/templates/registration/login.html:31
+msgid "forgot your password?"
+msgstr "pamiršote slaptažodį?"
+
+#: theater/templates/registration/password_reset_complete.html:4
+msgid "password changed!"
+msgstr "slaptažodis pakeistas!"
+
+#: theater/templates/registration/password_reset_complete.html:5
+msgid "log in again"
+msgstr "prisijunkite dar kartą"
+
+#: theater/templates/registration/password_reset_confirm.html:5
+msgid "enter a new password and repeat."
+msgstr "įveskite naują slaptažodį ir pakartokite."
+
+#: theater/templates/registration/password_reset_confirm.html:11
+msgid "new password:"
+msgstr "naujas slaptažodis:"
+
+#: theater/templates/registration/password_reset_confirm.html:16
+msgid "confirm:"
+msgstr "patvirtinkite:"
+
+#: theater/templates/registration/password_reset_confirm.html:21
+msgid "change the password"
+msgstr "pakeisti slaptažodį"
+
+#: theater/templates/registration/password_reset_confirm.html:26
+msgid "failed to change password"
+msgstr "nepavyko pakeisti slaptažodžio"
+
+#: theater/templates/registration/password_reset_confirm.html:27
+msgid "the password reset link is invalid. please initiate the password reset."
+msgstr "slaptažodžio pakeitimo nuoroda negaliojanti. prašome inicijuoti slaptažodžio keitimą iš naujo."
+
+#: theater/templates/registration/password_reset_done.html:4
+msgid "we've emailed you a password reset link!"
+msgstr "slaptažodžio pakeitimo nuorodą išsiuntėme jums el.paštu!"
+
+#: theater/templates/registration/password_reset_form.html:10
+msgid "reset password"
+msgstr "atstatyti slaptažodį"
+
+#: theater/templates/theater/actor.html:7
+#: theater/templates/theater/base.html:39
+#: theater/templates/theater/director.html:11
+msgid "performances"
+msgstr "spektakliai"
+
+#: theater/templates/theater/actors.html:4
+#: theater/templates/theater/base.html:42
+#: theater/templates/theater/performance_detail.html:10
+msgid "actors"
+msgstr "aktoriai"
+
+#: theater/templates/theater/actors.html:5
+msgid "actors of our theater."
+msgstr "mūsų teatro aktoriai."
+
+#: theater/templates/theater/base.html:6 theater/templates/theater/index.html:4
+msgid "theater studio 'PALĖPĖ'"
+msgstr "teatro studija 'PALĖPĖ'"
+
+#: theater/templates/theater/base.html:33
+msgid "home"
+msgstr "pradžia"
+
+#: theater/templates/theater/base.html:36
+#: theater/templates/theater/directors.html:4
+msgid "directors"
+msgstr "režisierius"
+
+#: theater/templates/theater/base.html:54
+msgid "my performances"
+msgstr "mano spektakliai"
+
+#: theater/templates/theater/base.html:57
+msgid "my profile"
+msgstr "profilis"
+
+#: theater/templates/theater/base.html:60
+msgid "logout"
+msgstr "atsijungti"
+
+#: theater/templates/theater/base.html:67
+msgid "register"
+msgstr "registruotis"
+
+#: theater/templates/theater/base.html:72
+msgid "search"
+msgstr "paieška"
+
+#: theater/templates/theater/base.html:77
+msgid "admin"
+msgstr "adminas"
+
+#: theater/templates/theater/director.html:5
+msgid "director"
+msgstr "režisierius"
+
+#: theater/templates/theater/directors.html:5
+msgid "directors of our theater"
+msgstr "mūsų spektaklių režisieriai."
+
+#: theater/templates/theater/index.html:5
+msgid "welcome to the theater!"
+msgstr "sveiki atvykę į teatrą!"
+
+#: theater/templates/theater/index.html:6
+msgid "we currently show:"
+msgstr "šiuo metu rodome:"
+
+#: theater/templates/theater/index.html:8
+msgid "performances:"
+msgstr "spektaklių:"
+
+#: theater/templates/theater/index.html:9
+msgid "shows:"
+msgstr "pasirodymai:"
+
+#: theater/templates/theater/index.html:10
+msgid "available shows:"
+msgstr "laisvų vietų spektakliai:"
+
+#: theater/templates/theater/index.html:11
+msgid "directors:"
+msgstr "režisieriai:"
+
+#: theater/templates/theater/index.html:13
+msgid "you are here for the"
+msgstr "čia jūs lankotes "
+
+#: theater/templates/theater/index.html:13
+msgid "time"
+msgstr "-ą kartą."
+
+#: theater/templates/theater/performance_detail.html:7
+#: theater/templates/theater/user_performances.html:13
+msgid "director:"
+msgstr "režisierius"
+
+#: theater/templates/theater/performance_detail.html:8
+msgid "genre:"
+msgstr "žanras:"
+
+#: theater/templates/theater/performance_detail.html:9
+msgid "summary"
+msgstr "aprašymas:"
+
+#: theater/templates/theater/performance_detail.html:16
+msgid "shows"
+msgstr "pasirodymai:"
+
+#: theater/templates/theater/performance_detail.html:20
+msgid "the day of the show"
+msgstr "spektaklio diena"
+
+#: theater/templates/theater/performance_detail.html:24
+#: theater/templates/theater/user_performance_form.html:12
+msgid "booked"
+msgstr "rezervuoti"
+
+#: theater/templates/theater/performance_list.html:5
+msgid "list of performances"
+msgstr "spektaklių sąrašas"
+
+#: theater/templates/theater/performance_list.html:25
+msgid "there is no such performance."
+msgstr "tokio spektaklio nėra."
+
+#: theater/templates/theater/performance_list.html:31
+msgid "first"
+msgstr "pirmas"
+
+#: theater/templates/theater/performance_list.html:32
+msgid "back"
+msgstr "atgal"
+
+#: theater/templates/theater/performance_list.html:40
+msgid "forward"
+msgstr "pirmyn"
+
+#: theater/templates/theater/performance_list.html:41
+msgid "last one"
+msgstr "paskutinis"
+
+#: theater/templates/theater/search.html:4
+msgid "search by"
+msgstr "paieškos pagal"
+
+#: theater/templates/theater/search.html:4
+msgid "results:"
+msgstr "rezultatai:"
+
+#: theater/templates/theater/search.html:15
+msgid "we didn't find anything"
+msgstr "nieko neradome"
+
+#: theater/templates/theater/user_booked_performance.html:4
+#: theater/templates/theater/user_performances.html:5
+msgid "my booked performances"
+msgstr "mano rezervuoti spektakliai"
+
+#: theater/templates/theater/user_booked_performance.html:12
+msgid "canceled"
+msgstr "atšaukti"
+
+#: theater/templates/theater/user_booked_performance.html:19
+msgid "you currently have not booked any performances."
+msgstr "šiuo metu nesate rezervavęs spektaklių."
+
+#: theater/templates/theater/user_performance_form.html:5
+msgid "booked a performance"
+msgstr "rezervuoti spektaklį"
+
+#: theater/templates/theater/user_performances.html:9
+msgid "viewer"
+msgstr "žiūrovas"
+
+#: theater/templates/theater/user_performances.html:12
+msgid "performance:"
+msgstr "spektaklis"
+
+#: theater/templates/theater/user_performances.html:15
+msgid "booked date"
+msgstr "rezevacijos data"
+

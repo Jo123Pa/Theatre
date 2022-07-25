@@ -9,8 +9,8 @@
             {% trans "viewer"|capfirst %}: {{ object.viewer }}<br>
         </li>
         <li class="list-group-item">
-            <p><strong>Spektaklis:</strong> {{ object.performance.title}}</p>  
-            <p><strong>Režisierius:</strong> {{ object.performance.director }}</p>  
+            <p><strong>{% trans "performance:"|capfirst %}</strong> {{ object.performance.title}}</p>  
+            <p><strong>{% trans "director:"|capfirst %}</strong> {{ object.performance.director }}</p>  
             <p><strong class="{% if object.is_overdue %}text-danger{% endif %}">
             {% trans "booked date"|capfirst %}: {{ object.performance_date }}</p>
         </li>    

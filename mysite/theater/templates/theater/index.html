@@ -1,15 +1,15 @@
 {% extends "theater/base.html" %}
-
+{% load i18n %}
 {% block content %}
-  <h1>Teatro studija "PALĖPĖ"</h1>
-  <p>Sveiki atvykę į teatrą!</p>
-  <p>Šiuo metu rodome:</p>
+  <h1>{% trans "theater studio 'PALĖPĖ'"|capfirst %}</h1>
+  <p>{% trans "welcome to the theater!"|capfirst %}</p>
+  <p>{% trans "we currently show:"|capfirst %}</p>
   <ul>
-    <li><strong>Spektaklių:</strong> {{ num_performance }}</li>
-    <li><strong>Pasirodymai:</strong> {{ num_instances }}</li>
-    <li><strong>Laisvų vietų spektakliai:</strong> {{ num_instances_available }}</li>
-    <li><strong>Režisieriai:</strong> {{ num_director }}</li>
+    <li><strong>{% trans "performances:"|capfirst %}</strong> {{ num_performance }}</li>
+    <li><strong>{% trans "shows:"|capfirst %}</strong> {{ num_instances }}</li>
+    <li><strong>{% trans "available shows:"|capfirst %}</strong> {{ num_instances_available }}</li>
+    <li><strong>{% trans "directors:"|capfirst %}</strong> {{ num_director }}</li>
     <br/>
-    <p>Čia jūs lankotes {{ num_visits }}-ą kartą.</p>
+    <p>{% trans "you are here for the"|capfirst %} {{ num_visits }} {% trans "time" %}</p>
   </ul>
 {% endblock %}

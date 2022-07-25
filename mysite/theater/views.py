@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 from django.core.paginator import Paginator
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     num_performance = Performance.objects.count()
@@ -110,7 +111,7 @@ class BookByUserCreateView(LoginRequiredMixin, generic.CreateView):
         #     initial['performance_date'] = performance_date
         return initial
  
-
+@login_required
 def performance_attender(request, pi_id):
     performance = get_object_or_404(PerformanceInstance, id=pi_id)
     viewer = request.user
@@ -133,7 +134,7 @@ def performance_attender(request, pi_id):
 
     return redirect ('my-booked')    
 
-
+@login_required
 def performance_cancel(request, pi_id):
     performance = get_object_or_404(PerformanceInstance, id=pi_id)
     viewer = request.user

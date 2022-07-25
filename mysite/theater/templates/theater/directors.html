@@ -1,8 +1,8 @@
 {% extends "theater/base.html" %}
-
+{% load i18n %}
 {% block content %}
-  <h1>Režisieriai</h1>
-  <p>Mūsų spektaklių režisieriai.</p>
+  <h1>{% trans "directors"|capfirst %}</h1>
+  <p>{% trans "directors of our theater"|capfirst %}</p>
   {% for a in directors %}
     <li><a href="{% url 'director' a.id %}">{{a.first_name}} {{a.last_name}}</a></li>
   {% endfor %}
