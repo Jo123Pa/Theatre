@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-25 19:52+0000\n"
+"POT-Creation-Date: 2022-07-26 18:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,111 @@ msgstr ""
 "11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
 "1 : n % 1 != 0 ? 2: 3);\n"
 
+#: theater/models.py:12 theater/models.py:18
+msgid "genre"
+msgstr "žanras:"
+
+#: theater/models.py:12
+msgid "enter the genre of the performance"
+msgstr "įveskite spektaklio žanrą"
+
+#: theater/models.py:19
+msgid "genres"
+msgstr "žanrai"
+
+#: theater/models.py:22 theater/models.py:80
+msgid "first_name"
+msgstr "vardas"
+
+#: theater/models.py:23 theater/models.py:81
+msgid "last_name"
+msgstr "pavardė"
+
+#: theater/models.py:24
+msgid "description"
+msgstr "aprašymas"
+
+#: theater/models.py:43 theater/templates/theater/director.html:5
+msgid "director"
+msgstr "režisierius"
+
+#: theater/models.py:44 theater/templates/theater/base.html:36
+#: theater/templates/theater/directors.html:4
+msgid "directors"
+msgstr "režisieriai"
+
+#: theater/models.py:48
+msgid "title"
+msgstr "pavadinimas"
+
+#: theater/models.py:49
+msgid "author"
+msgstr "autorius"
+
+#: theater/models.py:50 theater/templates/theater/performance_detail.html:9
+msgid "summary"
+msgstr "aprašymas"
+
+#: theater/models.py:52
+msgid "choose the actors of the play"
+msgstr "pasirinkite spektaklio aktorius"
+
+#: theater/models.py:54
+msgid "cover"
+msgstr "viršelis"
+
+#: theater/models.py:76
+msgid "performance"
+msgstr "spektaklis"
+
+#: theater/models.py:77 theater/templates/theater/actor.html:7
+#: theater/templates/theater/base.html:39
+#: theater/templates/theater/director.html:11
+msgid "performances"
+msgstr "spektakliai"
+
+#: theater/models.py:94
+msgid "actor"
+msgstr "aktorius"
+
+#: theater/models.py:95 theater/templates/theater/actors.html:4
+#: theater/templates/theater/base.html:42
+#: theater/templates/theater/performance_detail.html:10
+msgid "actors"
+msgstr "aktoriai"
+
+#: theater/models.py:99
+msgid "A unique ID for a performance"
+msgstr "unikalus spektaklio ID"
+
+#: theater/models.py:101
+msgid "performance_date"
+msgstr "pasirodymo_diena"
+
+#: theater/models.py:103
+msgid "ticket"
+msgstr "bilietas"
+
+#: theater/models.py:114 theater/views.py:17
+msgid "available"
+msgstr "yra laisvų vietų"
+
+#: theater/models.py:115 theater/views.py:102
+msgid "not available"
+msgstr "nėra laisvų vietų"
+
+#: theater/models.py:123
+msgid "status"
+msgstr "statusas"
+
+#: theater/models.py:127
+msgid "performanceinstance"
+msgstr "pasirodymas"
+
+#: theater/models.py:128
+msgid "performanceinstances"
+msgstr "pasirodymai"
+
 #: theater/templates/registration/login.html:6
 msgid "login error, please try again!"
 msgstr "prisijungimo klaida, bandykite dar kartą!"
@@ -30,14 +135,14 @@ msgstr "neturite prieigos prie šios informacijos. turite prisijungti."
 
 #: theater/templates/registration/login.html:19
 msgid "user:"
-msgstr "vartotojas"
+msgstr "vartotojas:"
 
 #: theater/templates/registration/login.html:23
 msgid "password:"
 msgstr "slaptažodis:"
 
 #: theater/templates/registration/login.html:27
-#: theater/templates/theater/base.html:64
+#: theater/templates/theater/base.html:65
 msgid "login"
 msgstr "prisijungti"
 
@@ -87,23 +192,12 @@ msgstr "slaptažodžio pakeitimo nuorodą išsiuntėme jums el.paštu!"
 msgid "reset password"
 msgstr "atstatyti slaptažodį"
 
-#: theater/templates/theater/actor.html:7
-#: theater/templates/theater/base.html:39
-#: theater/templates/theater/director.html:11
-msgid "performances"
-msgstr "spektakliai"
-
-#: theater/templates/theater/actors.html:4
-#: theater/templates/theater/base.html:42
-#: theater/templates/theater/performance_detail.html:10
-msgid "actors"
-msgstr "aktoriai"
-
 #: theater/templates/theater/actors.html:5
 msgid "actors of our theater."
 msgstr "mūsų teatro aktoriai."
 
-#: theater/templates/theater/base.html:6 theater/templates/theater/index.html:4
+#: theater/templates/theater/base.html:6 theater/templates/theater/base.html:24
+#: theater/templates/theater/index.html:4
 msgid "theater studio 'PALĖPĖ'"
 msgstr "teatro studija 'PALĖPĖ'"
 
@@ -111,38 +205,25 @@ msgstr "teatro studija 'PALĖPĖ'"
 msgid "home"
 msgstr "pradžia"
 
-#: theater/templates/theater/base.html:36
-#: theater/templates/theater/directors.html:4
-msgid "directors"
-msgstr "režisierius"
-
 #: theater/templates/theater/base.html:54
 msgid "my performances"
 msgstr "mano spektakliai"
 
-#: theater/templates/theater/base.html:57
-msgid "my profile"
-msgstr "profilis"
-
-#: theater/templates/theater/base.html:60
+#: theater/templates/theater/base.html:61
 msgid "logout"
 msgstr "atsijungti"
 
-#: theater/templates/theater/base.html:67
+#: theater/templates/theater/base.html:68
 msgid "register"
 msgstr "registruotis"
 
-#: theater/templates/theater/base.html:72
+#: theater/templates/theater/base.html:73
 msgid "search"
 msgstr "paieška"
 
-#: theater/templates/theater/base.html:77
+#: theater/templates/theater/base.html:90
 msgid "admin"
 msgstr "adminas"
-
-#: theater/templates/theater/director.html:5
-msgid "director"
-msgstr "režisierius"
 
 #: theater/templates/theater/directors.html:5
 msgid "directors of our theater"
@@ -166,7 +247,7 @@ msgstr "pasirodymai:"
 
 #: theater/templates/theater/index.html:10
 msgid "available shows:"
-msgstr "laisvų vietų spektakliai:"
+msgstr "spektakliai, kuriuose yra laisvų vietų:"
 
 #: theater/templates/theater/index.html:11
 msgid "directors:"
@@ -183,15 +264,11 @@ msgstr "-ą kartą."
 #: theater/templates/theater/performance_detail.html:7
 #: theater/templates/theater/user_performances.html:13
 msgid "director:"
-msgstr "režisierius"
+msgstr "režisierius:"
 
 #: theater/templates/theater/performance_detail.html:8
 msgid "genre:"
 msgstr "žanras:"
-
-#: theater/templates/theater/performance_detail.html:9
-msgid "summary"
-msgstr "aprašymas:"
 
 #: theater/templates/theater/performance_detail.html:16
 msgid "shows"
@@ -265,8 +342,20 @@ msgstr "žiūrovas"
 
 #: theater/templates/theater/user_performances.html:12
 msgid "performance:"
-msgstr "spektaklis"
+msgstr "spektaklis:"
 
 #: theater/templates/theater/user_performances.html:15
 msgid "booked date"
 msgstr "rezevacijos data"
+
+#: theater/views.py:127
+msgid "you have successfully booked"
+msgstr "jūs sėkmingai rezervavote"
+
+#: theater/views.py:130
+msgid "there are no seats in the performance or you have already booked"
+msgstr "nėra laisvų vietų arba jau ankčiau rezervavote"
+
+#: theater/views.py:149
+msgid "your reservation has been successfully cancelled"
+msgstr "jūsų rezervacija sėkmingai panaikinta"

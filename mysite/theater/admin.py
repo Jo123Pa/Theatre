@@ -3,8 +3,6 @@ from .models import Genre, Performance, Director, Actor, PerformanceInstance
 
 class PerformanceInstanceInline(admin.TabularInline):
     model = PerformanceInstance
-    # readonly_fields = ('id',)
-    # can_delete = False
     extra = 0
 
 class PerformanceAdmin(admin.ModelAdmin):
@@ -14,9 +12,7 @@ class PerformanceAdmin(admin.ModelAdmin):
 
 class PerformanceInstanceAdmin(admin.ModelAdmin):
     list_display = ('performance_date', 'performance', 'status', 'ticket')
-    # list_editable = ('performance_date', 'status')
     list_filter = ('performance_date', 'performance')
-    # search_fields = ('id', 'performance__title')
 
     fieldsets = (
         ('General', {'fields': ('unique_id', 'performance')}),

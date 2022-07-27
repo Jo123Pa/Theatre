@@ -9,11 +9,12 @@ from django.core.paginator import Paginator
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.utils.translation import gettext_lazy as _
 
 def index(request):
     num_performance = Performance.objects.count()
     num_instances = PerformanceInstance.objects.all().count()
-    num_instances_available = PerformanceInstance.objects.filter(status__exact='Yra laisvų vietų').count()
+    num_instances_available = PerformanceInstance.objects.filter(status__exact='available').count()
     num_director = Director.objects.count()
     num_visits = request.session.get('num_visits', 1)
     request.session['num_visits'] = num_visits + 1
@@ -42,7 +43,7 @@ def director(request, director_id):
     return render(request, 'theater/director.html', {'director': single_director})
 
 def actors(request):
-    paginator = Paginator(Actor.objects.all(), 2)
+    paginator = Paginator(Actor.objects.all(), 4)
     page_number = request.GET.get('page')
     paged_actors = paginator.get_page(page_number)
     context = {
@@ -56,8 +57,7 @@ def actor(request, actor_id):
 
 class PerformanceListView(generic.ListView):
     model = Performance
-    # queryset = Performance.objects.filter(status__exact='Yra laisvų vietų')[:3] 
-    paginate_by = 1
+    paginate_by = 2
     template_name = 'theater/performance_list.html'
 
 class PerformanceDetailView(generic.DetailView):
@@ -82,7 +82,6 @@ class BookedPerformanceByUserListView(LoginRequiredMixin,generic.ListView):
     paginate_by = 4
 
     def get_queryset(self):
-        # return PerformanceInstance.objects.filter(viewer=self.request.user).booked().order_by('performance_date')
         return PerformanceInstance.objects.filter(viewer=self.request.user)
 
 class BookedPerformanceByUserDelailView(LoginRequiredMixin, generic.DetailView):
@@ -98,17 +97,14 @@ class BookByUserCreateView(LoginRequiredMixin, generic.CreateView):
 
     def form_valid(self, form):
         form.instance.viewer = self.request.user
-        form.instance.status = 'Nėra laisvų vietų'
+        form.instance.status = _('not available')
         return super().form_valid(form)
 
     def get_initial(self):
         initial = super().get_initial()
         performance_id = self.request.Get.get('performance_id')
-        # performance_date = self.request.GET.get('performance_date')
         if performance_id:
             initial['performance'] = performance_id
-        # if performance_date:
-        #     initial['performance_date'] = performance_date
         return initial
  
 @login_required
@@ -123,13 +119,13 @@ def performance_attender(request, pi_id):
     if viewer not in viewers and performance.ticket >= len(viewers)+1:
         performance.viewer.add(viewer)
         performance.save()
-        messages.success(request, 'Jus sekmingai rezervavote')
+        messages.success(request, _('you have successfully booked'))
 
     else:
-         messages.warning(request, 'Spektaklyje nera vietu arba Jus jau rezervavote ankciau')
+        messages.warning(request, _('there are no seats in the performance or you have already booked'))
 
     if len(viewers)+1 == performance.ticket:
-        performance.status = ('Nėra laisvų vietų')
+        performance.status = 'not available'
         performance.save()
 
     return redirect ('my-booked')    
@@ -141,9 +137,9 @@ def performance_cancel(request, pi_id):
     viewers = []
     for view in performance.viewer.all():
         viewers.append(view)
-    if performance.status == ('Nėra laisvų vietų'):
+    if performance.status == 'not available':
         performance.viewer.remove(viewer)
-        performance.status = ('Yra laisvų vietų')
+        performance.status = 'available'
         performance.save()
-    messages.success(request, 'Jusu rezervacija sekmingai panaikinta')
+        messages.success(request, _('your reservation has been successfully cancelled'))
     return redirect ('performances')

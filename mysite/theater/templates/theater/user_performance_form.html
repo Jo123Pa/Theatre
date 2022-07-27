@@ -6,7 +6,6 @@
     <form method="post" action="" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form|crispy }}
-        {% comment %} {{ user_form|crispy }} {% endcomment %}
         <div class="form-group">
             <button class="btn btn-primary">{% trans "booked"|capfirst %}</button>
         </div>

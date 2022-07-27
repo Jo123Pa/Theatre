@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-25 19:52+0000\n"
+"POT-Creation-Date: 2022-07-26 18:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,7 +80,7 @@ msgstr "nesidalinsime su niekuo, nesiųsime jokio spamo."
 
 #: user_profile/templates/user_profile/register.html:27
 msgid "required to send a new password."
-msgstr "reikalingas naujam slaptažodžiui išsiųsti. "
+msgstr "reikalingas naujam slaptažodžiui išsiųsti."
 
 #: user_profile/templates/user_profile/register.html:30
 msgid "password"
@@ -102,27 +102,32 @@ msgstr "jei ankšiau registravotės, "
 msgid "login"
 msgstr "prisijungti"
 
-#: user_profile/views.py:45
+#: user_profile/views.py:28
+#, fuzzy
+#| msgid "User {} was created successfully."
+msgid "User profile was updated succeefully"
+msgstr "Vartotojas {} sukurtas sėkmingai"
+
+#: user_profile/views.py:46
 msgid "Username already exists or was not entered."
 msgstr "Toks vartotojas jau yra arba vartotojo vardas nebuvo įvestas"
 
-#: user_profile/views.py:48
+#: user_profile/views.py:49
 msgid "First_name or second_name were not entered"
 msgstr "Vardas arba pavardė nebuvo įvesta"
 
-#: user_profile/views.py:51
+#: user_profile/views.py:52
 msgid ""
 "User with this email address already exists, or email was entered "
 "incorrectly."
 msgstr ""
-"vartotojas su tokiu el.paštu jau egzistuoja arba el.paštas buvo įvestas "
+"Vartotojas su tokiu el.paštu jau egzistuoja arba el.paštas buvo įvestas "
 "neteisingai"
 
-#: user_profile/views.py:54
+#: user_profile/views.py:55
 msgid "Passwords do not match or were not entered."
 msgstr "Slaptažodžiai nesutampa"
 
-#: user_profile/views.py:65
+#: user_profile/views.py:66
 msgid "User {} was created successfully."
 msgstr "Vartotojas {} sukurtas sėkmingai"
-

@@ -18,9 +18,9 @@
     {% for performance in object.performanceinstance_set.all %}
       <hr>
      <p><strong>{% trans "the day of the show"|capfirst %}</strong> {{ performance.performance_date }}</p>
-     <p class="text-muted"><strong>{{ performance.status }}</strong></p>
-     {% comment %} <a class="btn btn-success float-left" href="{% url 'my-booked-new' %}?performance_id={{ performance.id }}">{% trans "booked"|capfirst%}</a> {% endcomment %}
-     <a class="btn btn-success float-left" href="{% url 'attend' performance.id %}">{% trans "booked"|capfirst%}</a>
+     <p class="text-muted"><strong>{{ performance.get_status_display }}</strong></p>
+     <p><a class="btn btn-success float-left" href="{% url 'attend' performance.id %}">{% trans "booked"|capfirst%}</a></p>
+     <br>
     {% endfor %}
   </div>
 

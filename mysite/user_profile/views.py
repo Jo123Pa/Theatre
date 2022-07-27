@@ -11,6 +11,7 @@ from django.contrib.auth.forms import User
 from . forms import UserUpdateForm, ProfileUpdateForm
 from django.urls import reverse_lazy
 
+
 @login_required
 def profile(request):
     return render(request, 'user_profile/profile.html')
@@ -24,7 +25,7 @@ def update_profile(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, 'User profile was updated succeefully')
+            messages.success(request, _('User profile was updated succeefully'))
             return redirect(reverse_lazy('profile'))
     else:
         user_form = UserUpdateForm(instance=request.user)
@@ -53,11 +54,6 @@ def register(request):
         if not password or not password2 or password != password2:
             messages.error(request, _('Passwords do not match or were not entered.'))
             is_error = True
-        # try:
-        #     validate_password(password, password_validators=get_password_validators(settings.AUTH_PASSWORD_VALIDATORS))
-        # except Exception as password_error:
-        #     messages.error(request, _('Password error: {}').format(password_error[0]))
-        #     is_error = True
         if is_error:
             return redirect('register')
         else:

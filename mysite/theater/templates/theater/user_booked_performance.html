@@ -10,7 +10,8 @@
       <li class="{% if performanceinst.is_overdue %}text-danger{% endif %}">
         <a href="{% url 'performance' performanceinst.performance.pk %}">{{performanceinst.performance.title}}</a> ({{ performanceinst.performance_date }}) 
         <a class="btn btn-danger" href="{% url 'cancel' performanceinst.id %}">{% trans "canceled"|capfirst%}</a>
-      {% comment %} </li>     <a class="btn btn-success float-left" href="{% url 'cancel' performanceinst.id %}">{% trans "canceled"|capfirst%}</a> {% endcomment %}
+        <br>
+        <br>
       {% endfor %}
     </ul>
 
